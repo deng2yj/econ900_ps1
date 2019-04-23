@@ -16,4 +16,29 @@ f = open("html_files/boardgamegeek1.html", "r")
 
 soup = BeautifulSoup(f.read(), 'html.parser')
 
-print(soup)
+#print(soup)
+f.close()
+
+boardgames_table = soup.find("table", {"id": "collectionitems"})
+# print(boardgames_table)
+# boardgames_tbody = boardgames_table.find("tbody")
+# print(boardgames_tbody)
+boardgames_rows = boardgames_table.find_all("tr", {"id":"row_"})
+# print(boardgames_rows)
+
+
+boardgame_name = boardgames_rows[0].find("td", {"class": "collection_objectname"}).find("a").text
+boardgame_rank = boardgames_rows[0].find("td", {"class": "collection_rank"}).text
+boardgame_year = boardgames_rows[0].find("td", {"class": "collection_objectname"}).find("span").text
+boardgame_geekrating = boardgames_rows[0].find("td", {"class": "collection_bggrating"}).text
+boardgame_avgrating = boardgames_rows[0].find("td", {"class": "collection_bggrating"}).findNext("td", {"class": "collection_bggrating"}).text
+boardgame_voters = boardgames_rows[0].find("td", {"class": "collection_bggrating"}).findNext("td", {"class": "collection_bggrating"}).findNext("td", {"class": "collection_bggrating"}).text
+print(boardgame_year)
+print(boardgame_name)
+print(boardgame_rank)
+print(boardgame_geekrating)
+print(boardgame_avgrating)
+print(boardgame_voters)
+
+
+
