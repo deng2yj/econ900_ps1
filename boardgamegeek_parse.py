@@ -33,12 +33,15 @@ boardgame_year = boardgames_rows[0].find("td", {"class": "collection_objectname"
 boardgame_geekrating = boardgames_rows[0].find("td", {"class": "collection_bggrating"}).text
 boardgame_avgrating = boardgames_rows[0].find("td", {"class": "collection_bggrating"}).findNext("td", {"class": "collection_bggrating"}).text
 boardgame_voters = boardgames_rows[0].find("td", {"class": "collection_bggrating"}).findNext("td", {"class": "collection_bggrating"}).findNext("td", {"class": "collection_bggrating"}).text
+boardgame_price = boardgames_rows[0].find("td", {"collection_shop"}).find("div", {"class": "aad"}).find("div").find("div").text
+# collection_Listprice = boardgame_price.next_element.next_element.next_element.next_element
 print(boardgame_year)
 print(boardgame_name)
 print(boardgame_rank)
 print(boardgame_geekrating)
 print(boardgame_avgrating)
 print(boardgame_voters)
+print(boardgame_price)
 
 
 
