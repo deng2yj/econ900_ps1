@@ -16,9 +16,10 @@ dataset["boardgame_rank"] = pd.to_numeric(dataset["boardgame_rank"])
 # dataset = pd.to_numeric(dataset1, errors = 'coerce')
 
 dataset = dataset.dropna()
-
+# print(dataset.mean)
 print(dataset.shape)
 
+#with price
 target = dataset.iloc[:,6].values
 # target_number = pd.to_numeric(target, errors = 'coerce')
 data = dataset.iloc[:,2:6]
@@ -27,11 +28,26 @@ data = dataset.iloc[:,2:6]
 print(target)
 print(data.head())
 
-data_training, data_test, target_training, target_test = train_test_split(data, target, test_size = 0.2, random_state = 1)
-svm_model = SVC(kernel='linear', C=1E5)
-svm_model.fit(data_training, target_training)
-predictions = svm_model.predict(data_test)
-print(r2_score(target_test, predictions))
+# data_training, data_test, target_training, target_test = train_test_split(data, target, test_size = 0.2, random_state = 1)
+# svm_model = SVC(kernel='linear', C=1E5)
+# svm_model.fit(data_training, target_training)
+# predictions = svm_model.predict(data_test)
+# print(r2_score(target_test, predictions))
 # print(predictions.shape)
 # print(data_test.shape)
 
+
+#without price
+# target_noprice = dataset.iloc[:,5].values
+# # target_number = pd.to_numeric(target, errors = 'coerce')
+# data_noprice = dataset.iloc[:,2:6]
+# # data_number_1 = pd.to_numeric(data, errors = 'coerce')
+# # 
+# print(target_noprice)
+# print(data_noprice.head())
+
+# data_training_noprice, data_test_noprice, target_training_noprice, target_test_noprice = train_test_split(data_noprice, target_noprice, test_size = 0.2, random_state = 1)
+# svm_model_noprice = SVC(kernel='linear', C=1E5)
+# svm_model_noprice.fit(data_training_noprice, target_training_noprice)
+# predictions_noprice = svm_model.predict(data_test_noprice)
+# print(r2_score(target_test_noprice, predictions_noprice))
